@@ -203,6 +203,8 @@ export default function Portfolio() {
     asunto: '',
     mensaje: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState({ type: '', message: '' })
 
   const proyectos = [
     {
@@ -249,17 +251,53 @@ export default function Portfolio() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Datos del formulario:', formData)
-    alert("Mensaje enviado correctamente!")
-    // Limpiar formulario después del envío
-    setFormData({
-      nombre: '',
-      email: '',
-      asunto: '',
-      mensaje: ''
-    })
+    setIsSubmitting(true)
+    setSubmitMessage({ type: '', message: '' })
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setSubmitMessage({ 
+          type: 'success', 
+          message: '✅ ¡Mensaje enviado correctamente! Te contactaremos pronto.' 
+        })
+        // Limpiar formulario después del envío exitoso
+        setFormData({
+          nombre: '',
+          email: '',
+          asunto: '',
+          mensaje: ''
+        })
+      } else {
+        setSubmitMessage({ 
+          type: 'error', 
+          message: `❌ Error: ${result.error || 'No se pudo enviar el mensaje'}` 
+        })
+      }
+    } catch (error) {
+      console.error('Error al enviar formulario:', error)
+      setSubmitMessage({ 
+        type: 'error', 
+        message: '❌ Error de conexión. Por favor intenta de nuevo.' 
+      })
+    } finally {
+      setIsSubmitting(false)
+      // Limpiar mensaje después de 5 segundos
+      setTimeout(() => {
+        setSubmitMessage({ type: '', message: '' })
+      }, 5000)
+    }
   }
 
   const scrollToContact = () => {
@@ -585,6 +623,17 @@ export default function Portfolio() {
                     </CardDescription>
                   </CardHeader>
                 <CardContent className="relative z-10">
+                  {/* Mensaje de feedback */}
+                  {submitMessage.message && (
+                    <div className={`mb-6 p-4 rounded-lg border ${
+                      submitMessage.type === 'success' 
+                        ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' 
+                        : 'bg-red-500/10 border-red-500/30 text-red-400'
+                    }`}>
+                      {submitMessage.message}
+                    </div>
+                  )}
+                  
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
@@ -597,7 +646,8 @@ export default function Portfolio() {
                           onChange={handleInputChange}
                           placeholder="Tu nombre"
                           required
-                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-emerald-500"
+                          disabled={isSubmitting}
+                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50"
                         />
                       </div>
                       <div className="space-y-2">
@@ -611,7 +661,8 @@ export default function Portfolio() {
                           onChange={handleInputChange}
                           placeholder="tu@email.com"
                           required
-                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-emerald-500"
+                          disabled={isSubmitting}
+                          className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50"
                         />
                       </div>
                     </div>
@@ -625,7 +676,8 @@ export default function Portfolio() {
                         onChange={handleInputChange}
                         placeholder="Asunto del mensaje"
                         required
-                        className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-emerald-500"
+                        disabled={isSubmitting}
+                        className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50"
                       />
                     </div>
                     <div className="space-y-2">
@@ -639,15 +691,26 @@ export default function Portfolio() {
                         placeholder="Escribe tu mensaje aquí..."
                         rows={5}
                         required
-                        className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-emerald-500 resize-none"
+                        disabled={isSubmitting}
+                        className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:border-emerald-500 focus:ring-emerald-500 resize-none disabled:opacity-50"
                       />
                     </div>
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-black font-semibold py-3 transition-all duration-300 transform hover:scale-105"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-black font-semibold py-3 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                     >
-                      <Send className="h-4 w-4 mr-2" />
-                      Enviar Mensaje
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-4 h-4 mr-2 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                          Enviando...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-4 w-4 mr-2" />
+                          Enviar Mensaje
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
