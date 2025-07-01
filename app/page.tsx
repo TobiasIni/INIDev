@@ -445,7 +445,7 @@ export default function Portfolio() {
                   {/* Badge */}
                   
                   <h2 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent animate-slide-up">
-                    Mis Servicios
+                    Nuestros Servicios
                   </h2>
                   <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
                     Ofrecemos soluciones completas para llevar tu negocio al siguiente nivel digital con{' '}
@@ -477,8 +477,8 @@ export default function Portfolio() {
                   </div>
                   
                   <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                    Algunos de nuestros trabajos más recientes que demuestran{' '}
-                    <span className="text-emerald-400 font-semibold">nuestra experiencia y calidad</span>
+                    Nuestro diferencial{' '}
+                    <span className="text-emerald-400 font-semibold">son nuestros clientes</span>
                   </p>
                   
                   {/* Animated Icon */}
@@ -544,15 +544,15 @@ export default function Portfolio() {
                 {/* Badge */}
                 <div className="inline-flex items-center px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-400 text-sm font-medium animate-fade-in">
                   <MessageSquare className="w-4 h-4 mr-2" />
-                  Conversemos sobre tu proyecto
+                  Contame tu proyecto
                 </div>
                 
                 <h2 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent animate-slide-up">
                   Contacto
                 </h2>
                 <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                  ¿Tienes un proyecto en mente? Nos encantaría escuchar sobre él y ver cómo podemos ayudarte a{' '}
-                  <span className="text-emerald-400 font-semibold">hacerlo realidad</span>
+                  ¿Te gusta lo distinto?{' '}
+                  <span className="text-emerald-400 font-semibold">hacelo realidad</span>
                 </p>
               </div>
 
@@ -566,7 +566,6 @@ export default function Portfolio() {
                       <span>Información de Contacto</span>
                     </CardTitle>
                     <CardDescription className="text-gray-300 text-lg">
-                      No dudes en contactarte a través de cualquiera de estos medios.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6 relative">
@@ -619,7 +618,7 @@ export default function Portfolio() {
                       <span>¿Listo para el salto digital? 🚀</span>
                     </CardTitle>
                     <CardDescription className="text-gray-300 text-lg">
-                      Completa el formulario y te responderemos lo antes posible.
+                      Completa el formulario y te nosotros te contactamos.
                     </CardDescription>
                   </CardHeader>
                 <CardContent className="relative z-10">
