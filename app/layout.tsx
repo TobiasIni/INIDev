@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'INI Dev',
+  title: 'Ini Desarrollos',
   description: 'Desarrollo Web Profesional',
-  generator: 'INI Dev',
+  generator: 'INI Desarrollos',
 }
 
 export default function RootLayout({

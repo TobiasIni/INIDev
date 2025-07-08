@@ -319,7 +319,7 @@ export default function Portfolio() {
                 <img src="/ini-logo.png" alt="Logo" className="w-full h-full object-cover rounded-full" />
               </div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">
-                INI Dev
+                INI Desarrollos
               </h1>
             </div>
             <nav className="flex space-x-1">
@@ -413,7 +413,7 @@ export default function Portfolio() {
                 {/* Estadísticas/Credenciales */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto pt-16 animate-slide-up" style={{ animationDelay: '0.8s' }}>
                   <div className="text-center space-y-2">
-                  <div className="text-3xl md:text-4xl font-bold text-emerald-400">48h</div>
+                  <div className="text-3xl md:text-4xl font-bold text-emerald-400">24/7</div>
                   <div className="text-sm text-gray-400 uppercase tracking-wide">Respuesta</div>
                   </div>
                   <div className="text-center space-y-2">
@@ -585,7 +585,7 @@ export default function Portfolio() {
                   <div 
                     className="flex items-center space-x-4 p-4 rounded-lg bg-emerald-500/5 border border-emerald-500/20 cursor-pointer hover:bg-emerald-500/10 transition-all duration-300 hover:border-emerald-500/40 hover:scale-[1.02]"
                     onClick={() => window.open(
-                      'https://wa.me/+541154745584?text=Hola%20INI%20Web%20Development,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios%20de%20desarrollo%20web.%20¿Podrían%20brindarme%20información?','_blank')}>
+                      'https://wa.me/+541154745584?text=Hola!%20me%20comunico%20desde%20tu%20pagina%20web%20me%20gustaría%20empezar%20un%20proyecto%20con%20vos','_blank')}>
                     <div className="w-12 h-12 bg-emerald-500 rounded-lg flex items-center justify-center hover:scale-[1.02]">
                       <Phone className="h-6 w-6 text-black" />
                     </div>
@@ -723,7 +723,7 @@ export default function Portfolio() {
       {/* WhatsApp Plugin Premium */}
       <div className="fixed bottom-6 right-6 z-50">
         <a
-          href="https://wa.me/+541154745584?text=Hola%20INI%20Web%20Development,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios%20de%20desarrollo%20web.%20¿Podrían%20brindarme%20información?"
+          href="https://wa.me/+541154745584?text=Hola!%20me%20comunico%20desde%20tu%20pagina%20web%20me%20gustaría%20empezar%20un%20proyecto%20con%20vos"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full shadow-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 animate-glow"
