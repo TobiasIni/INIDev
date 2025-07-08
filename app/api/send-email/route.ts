@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
             
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; text-align: center;">
               <p style="margin: 0; color: #9ca3af; font-size: 12px;">
-                Este mensaje fue enviado desde tu portfolio web - INI Dev
+                Este mensaje fue enviado desde tu portfolio web - INI Desarrollos
               </p>
             </div>
           </div>

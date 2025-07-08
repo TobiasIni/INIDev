@@ -318,7 +318,7 @@ export default function Portfolio() {
               <div className="w-10 h-10  flex items-center justify-center">
                 <img src="/ini-logo.png" alt="Logo" className="w-full h-full object-cover rounded-full" />
               </div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">
+              <h1 className="text-lg md:text-2xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">
                 INI Desarrollos
               </h1>
             </div>
@@ -449,7 +449,7 @@ export default function Portfolio() {
                   </h2>
                   <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
                     Ofrecemos soluciones completas para llevar tu negocio al siguiente nivel digital con{' '}
-                    <span className="text-emerald-400 font-semibold">tecnología de vanguardia</span>
+                    <span className="text-emerald-400 font-semibold">Las ultimas tecnologias</span>
                   </p>
                 </div>
 
