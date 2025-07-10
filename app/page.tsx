@@ -40,24 +40,15 @@ function SplashScreen({ onComplete }: { onComplete: () => void }) {
       <div className="text-center space-y-8">
         <div className="relative">
           <div className="w-40 h-40 mx-auto bg-gradient-to-r from-black-400 to-emerald-600 rounded-full flex items-center justify-center animate-pulse">
-            <img src="/ini-logo.png" alt="Logo" className="w-full h-full object-cover rounded-full border-4 border-emerald-400" />
+            <img src="/inilogo.jpg" alt="Logo" className="w-full h-full object-cover rounded-full border-4 border-emerald-400" />
           </div>
           <div className="absolute inset-0 w-40 h-40 mx-auto border-4 border-emerald-400 rounded-full animate-ping opacity-20"></div>
         </div>
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent animate-pulse">
-            Desarrollo Web Profesional
+            Desarrollos a medida
           </h1>
           <div className="flex items-center justify-center space-x-2">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce"></div>
-            <div
-              className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce"
-              style={{ animationDelay: "0.1s" }}
-            ></div>
-            <div
-              className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce"
-              style={{ animationDelay: "0.2s" }}
-            ></div>
           </div>
         </div>
       </div>
@@ -316,7 +307,7 @@ export default function Portfolio() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10  flex items-center justify-center">
-                <img src="/ini-logo.png" alt="Logo" className="w-full h-full object-cover rounded-full" />
+                <img src="/inilogo.jpg" alt="Logo" className="w-full h-full object-cover rounded-full" />
               </div>
               <h1 className="text-lg md:text-2xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">
                 INI Desarrollos
@@ -471,10 +462,6 @@ export default function Portfolio() {
               <div className="relative z-10 max-w-6xl mx-auto px-4 space-y-16">
                 <div className="text-center space-y-8">
                   {/* Badge */}
-                  <div className="inline-flex items-center px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-400 text-sm font-medium animate-fade-in">
-                    <Code className="w-4 h-4 mr-2" />
-                    Portfolio
-                  </div>
                   
                   <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
                     Nuestro diferencial{' '}
@@ -492,11 +479,10 @@ export default function Portfolio() {
 
                 {/* Carrousel horizontal */}
                 <div className="relative animate-slide-up" style={{ animationDelay: '0.4s' }}>
-                  {/* Gradient fade edges */}
-                
-                  <div className="flex-row overflow-x-auto scrollbar-hide gap-6 pb-1 snap-x snap-mandatory px-4 md:px-8 col-span-2">
+                  {/* Contenedor centrado para proyectos */}
+                  <div className="flex justify-center items-center px-4 md:px-8">
                     {proyectos.map((proyecto, index) => (
-                      <div key={proyecto.id} className="flex-none w-80 md:w-96 snap-start col-span-2">
+                      <div key={proyecto.id} className="w-80 md:w-96 max-w-lg">
                         <ProjectCard proyecto={proyecto} index={index} />
                       </div>
                     ))}
